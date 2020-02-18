@@ -5,6 +5,7 @@ MaxHeap::MaxHeap(){
   data_ = {};
 }
 
+//O(1)
 int MaxHeap::GetParentIndex(int i){
   if (i<0||i>data_.size()){
     return -1;
@@ -14,6 +15,7 @@ int MaxHeap::GetParentIndex(int i){
   }
 }
 
+//O(1)
 int MaxHeap::GetLeftIndex(int i){
   if (i<0||i>data_.size()){
     return -1;
@@ -23,6 +25,7 @@ int MaxHeap::GetLeftIndex(int i){
   }
 }
 
+//O(1)
 int MaxHeap::GetRightIndex(int i){
   if (i<0||i>data_.size()){
     return -1;
@@ -32,6 +35,7 @@ int MaxHeap::GetRightIndex(int i){
   }
 }
 
+//O(1)
 int MaxHeap::GetLargestChildIndex(int i){
   if(MaxHeap::GetLeftIndex(i)==-1 && MaxHeap::GetRightIndex(i)==-1){
     return -1;
@@ -44,7 +48,7 @@ int MaxHeap::GetLargestChildIndex(int i){
   }
 }
 
-
+//O(1)
 int MaxHeap::GetLeft(int i){
   if (MaxHeap::GetLeftIndex(i)<0){
     return -1;
@@ -52,6 +56,7 @@ int MaxHeap::GetLeft(int i){
   return data_[MaxHeap::GetLeftIndex(i)];
 }
 
+//O(1)
 int MaxHeap::GetRight(int i){
   if (MaxHeap::GetRightIndex(i)<0){
     return -1;
@@ -59,6 +64,7 @@ int MaxHeap::GetRight(int i){
   return data_[MaxHeap::GetRightIndex(i)];
 }
 
+//O(1)
 int MaxHeap::GetParent(int i){
   if (MaxHeap::GetParentIndex(i)){
     return -1;
@@ -67,6 +73,7 @@ int MaxHeap::GetParent(int i){
 }
 
 
+//O(1)
 int MaxHeap::top(){
   if(data_.size() == 0){
       return -1;
@@ -76,24 +83,28 @@ int MaxHeap::top(){
   }
 }
 
+//O(logn)
 void MaxHeap::push(int v){
   data_.push_back(v);
   int i=(data_.size()-1);
   MaxHeap::TrickleUp(i);
 }
 
+//O(logn)
 void MaxHeap::pop(){
   data_[0] = data_[data_.size() - 1];   
   MaxHeap::TrickleDown(0);
   data_.pop_back();
 }
 
+//O(1)
 void swap(int &x, int &y){
   int temp = x;
   x = y;
   y = temp;
 }
 
+//O(logn)
 void MaxHeap::TrickleUp(int i){
   while (i != 0 && MaxHeap::GetParent(i) < data_[i])
     {
@@ -102,6 +113,7 @@ void MaxHeap::TrickleUp(int i){
     }
 }
 
+//O(logn)
 void MaxHeap::TrickleDown(int i){
   while (i < data_.size() && data_[GetLargestChildIndex(i)] > data_[i])
     {
@@ -110,6 +122,7 @@ void MaxHeap::TrickleDown(int i){
     }
 }
 
+//O(n)
 vector<int> MaxHeap::print_heap(){
   vector<int> out;
   if(data_.size()>0){
