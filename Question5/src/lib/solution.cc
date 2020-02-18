@@ -1,5 +1,6 @@
 #include "solution.h"
 
+//O(nlogn)
 void Solution::HeapSort(vector<int> &input) {  
   priority_queue<int, vector<int>, greater<int> > pq;
   for(auto& it: input){
@@ -13,6 +14,7 @@ void Solution::HeapSort(vector<int> &input) {
   }   
 }
 
+//O(n)
 void Solution::print_vector(vector<int> v){
     if(v.size()>0){
         cout<<"{";
