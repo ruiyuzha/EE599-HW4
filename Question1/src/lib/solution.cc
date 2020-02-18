@@ -1,6 +1,7 @@
 #include "solution.h"
 using namespace std;
 
+//O(n)
 void Solution::print_vector(const vector<int> &v){
     if(v.size()>0){
         cout<<"{";
