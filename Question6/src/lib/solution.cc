@@ -1,5 +1,6 @@
 #include "solution.h"
 
+//O(nlogk)
 int Solution::FindkthLargest(const vector<int> &input, int k) { 
   if (k<=0 ||k>input.size()){
     return -1;
@@ -16,6 +17,7 @@ int Solution::FindkthLargest(const vector<int> &input, int k) {
   }
 }
 
+//O(n)
 void Solution::print_vector(vector<int> v){
     if(v.size()>0){
         cout<<"[";
